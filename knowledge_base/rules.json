@@ -1,0 +1,145 @@
+
+{
+  "rules": [
+    {
+      "id": "rule-inflammation",
+      "priority": 20,
+      "conditions": [
+        {"fact": "bol_v_kolene", "value": "yes"},
+        {"fact": "otek", "value": "yes"},
+        {"fact": "koleno_hodit", "value": "no"}
+      ],
+      "not_conditions": [],
+      "conclusion": {
+        "name": "vospalenie",
+        "value": "yes",
+        "kind": "syndrome"
+      },
+      "explanation": "Боль, отек и ограничение движения."
+    },
+    {
+      "id": "rule-unstable-ligaments",
+      "priority": 20,
+      "conditions": [
+        {"fact": "koleno_hodit", "value": "yes"}
+      ],
+      "not_conditions": [],
+      "conclusion": {
+        "name": "nestabilnost",
+        "value": "yes",
+        "kind": "syndrome"
+      },
+      "explanation": "Установлена нестабильность сустава."
+    },
+    {
+      "id": "rule-chronic-overload",
+      "priority": 20,
+      "conditions": [
+        {"fact": "bol_v_kolene", "value": "yes"},
+        {"fact": "bol_pri_nagruzke", "value": "yes"},
+        {"fact": "srok_72", "value": "yes"}
+      ],
+      "not_conditions": [],
+      "conclusion": {
+        "name": "hron_peregruzka",
+        "value": "yes",
+        "kind": "syndrome"
+      },
+      "explanation": "Боль при нагрузке более 72 часов."
+    },
+    {
+      "id": "rule-ligament-tear",
+      "priority": 10,
+      "conditions": [
+        {"fact": "nestabilnost", "value": "yes"}
+      ],
+      "not_conditions": [],
+      "conclusion": {
+        "name": "razryv_svyazok",
+        "value": "yes",
+        "kind": "diagnosis"
+      },
+      "explanation": "Нестабильность сустава."
+    },
+    {
+      "id": "rule-bruise",
+      "priority": 10,
+      "conditions": [
+        {"fact": "vospalenie", "value": "yes"}
+      ],
+      "not_conditions": [
+        {"fact": "hron_peregruzka", "value": "yes"}
+      ],
+      "conclusion": {
+        "name": "ushib_kolena",
+        "value": "yes",
+        "kind": "diagnosis"
+      },
+      "explanation": "Воспаление без установленной хронической перегрузки."
+    },
+    {
+      "id": "rule-tendinitis",
+      "priority": 10,
+      "conditions": [
+        {"fact": "hron_peregruzka", "value": "yes"}
+      ],
+      "not_conditions": [
+        {"fact": "vospalenie", "value": "yes"}
+      ],
+      "conclusion": {
+        "name": "tendinit",
+        "value": "yes",
+        "kind": "diagnosis"
+      },
+      "explanation": "Хроническая перегрузка без установленного воспаления."
+    },
+    {
+      "id": "rule-arthritis",
+      "priority": 10,
+      "conditions": [
+        {"fact": "vospalenie", "value": "yes"},
+        {"fact": "hron_peregruzka", "value": "yes"}
+      ],
+      "not_conditions": [],
+      "conclusion": {
+        "name": "artrit",
+        "value": "yes",
+        "kind": "diagnosis"
+      },
+      "explanation": "Воспаление и хроническая перегрузка."
+    },
+    {
+      "id": "rule-meniscus-damage",
+      "priority": 10,
+      "conditions": [
+        {"fact": "bol_v_kolene", "value": "yes"},
+        {"fact": "hrust", "value": "yes"}
+      ],
+      "not_conditions": [
+        {"fact": "zaklinilo", "value": "yes"}
+      ],
+      "conclusion": {
+        "name": "povrezhdenie_meniska",
+        "value": "yes",
+        "kind": "diagnosis"
+      },
+      "explanation": "Боль и хруст без заклинивания."
+    },
+    {
+      "id": "rule-meniscus-tear",
+      "priority": 10,
+      "conditions": [
+        {"fact": "bol_v_kolene", "value": "yes"},
+        {"fact": "hrust", "value": "yes"},
+        {"fact": "zaklinilo", "value": "yes"}
+      ],
+      "not_conditions": [],
+      "conclusion": {
+        "name": "razryv_meniska",
+        "value": "yes",
+        "kind": "diagnosis"
+      },
+      "explanation": "Боль, хруст и заклинивание."
+    }
+  ]
+}
