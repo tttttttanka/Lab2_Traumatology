@@ -6,7 +6,7 @@ import unittest
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-SRC_PATH = PROJECT_ROOT / "src"
+SRC_PATH = PROJECT_ROOT / "program_modules"
 
 sys.path.insert(0, str(SRC_PATH))
 
